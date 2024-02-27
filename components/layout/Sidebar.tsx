@@ -5,3 +5,5 @@ const Sidebar: React.FC = () => (
 
     </React.Fragment>
 )
+
+export default Sidebar
