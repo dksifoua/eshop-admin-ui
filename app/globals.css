@@ -16,7 +16,7 @@
   }
 }
 
-body {
+/*body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -24,10 +24,41 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
+}*/
 
 @layer utilities {
   .text-balance {
     text-wrap: normal;
   }
+}
+
+.eshop-container {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-areas: "sidebar header"
+                       "sidebar main"
+                       "sidebar footer";
+  grid-template-rows: 10% 80% 10%;
+  grid-template-columns: 15% 85%;
+}
+
+.eshop-sidebar {
+  grid-area: sidebar;
+  background-color: lightblue;
+}
+
+.eshop-header {
+  grid-area: header;
+  background-color: lightsalmon;
+}
+
+.eshop-main {
+  grid-area: main;
+  background-color: lightyellow;
+}
+
+.eshop-footer {
+  grid-area: footer;
+  background-color: firebrick;
 }
