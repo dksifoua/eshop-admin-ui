@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import React from "react";
+import Sidebar from "@/components/layout/Sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +16,9 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
         <html lang="en">
         <body className={inter.className}>
             <div className="eshop-container">
-                <nav className="eshop-sidebar">Navbar</nav>
+                <nav className="eshop-sidebar">
+                    <Sidebar />
+                </nav>
                 <header className="eshop-header">Header</header>
                 <main className="eshop-main">
                     {children}
