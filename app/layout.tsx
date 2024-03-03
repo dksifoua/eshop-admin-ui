@@ -23,7 +23,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
             <header className="eshop-header">
                 <Header/>
             </header>
-            <main className="eshop-main">
+            <main className="eshop-main p-2 border-t-2 border-l-2">
                 {children}
             </main>
             <footer className="eshop-footer">Footer</footer>
