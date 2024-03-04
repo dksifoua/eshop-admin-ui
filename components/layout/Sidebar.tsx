@@ -41,19 +41,19 @@ const Sidebar: React.FC = () => {
                             </Link>
                         </li>
                         <li className="rounded-sm hover:bg-blue-100 dark:hover:bg-blue-700">
-                            <Link href="#" className="flex items-center p-4 space-x-3 rounded-md">
+                            <Link href="/customers" className="flex items-center p-4 space-x-3 rounded-md">
                                 <PiUsers/>
                                 <span>Customers</span>
                             </Link>
                         </li>
                         <li className="rounded-sm hover:bg-blue-100 dark:hover:bg-blue-700">
-                            <Link href="#" className="flex items-center p-4 space-x-3 rounded-md">
+                            <Link href="/marketing" className="flex items-center p-4 space-x-3 rounded-md">
                                 <SiGooglemarketingplatform/>
                                 <span>Marketing</span>
                             </Link>
                         </li>
                         <li className="rounded-sm hover:bg-blue-100 dark:hover:bg-blue-700">
-                            <Link href="#" className="flex items-center p-4 space-x-3 rounded-md">
+                            <Link href="/analytics" className="flex items-center p-4 space-x-3 rounded-md">
                                 <TbPresentationAnalytics/>
                                 <span>Analytics</span>
                             </Link>
