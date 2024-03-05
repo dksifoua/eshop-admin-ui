@@ -1,77 +1,68 @@
+"use client"
+
 import React from "react";
 import Link from "next/link";
-import { RxArrowTopRight, RxDashboard } from "react-icons/rx";
+import { RxDashboard } from "react-icons/rx";
 import { TiShoppingCart } from "react-icons/ti";
 import { PiUsers } from "react-icons/pi";
 import { BsDatabase } from "react-icons/bs";
 import { TbPresentationAnalytics } from "react-icons/tb";
 import { SiGooglemarketingplatform } from "react-icons/si";
-import { MdOutlineContactSupport } from "react-icons/md";
-import { CgFileDocument } from "react-icons/cg";
+import { LuShoppingBasket } from "react-icons/lu"
 
-const Sidebar: React.FC = () =>
-    <aside className="w-auto flex flex-col justify-between h-full">
-        <div className="h-16 flex items-center justify-center border-b-2">
-            <h2 className="text-2xl font-semibold">Eshop</h2>
+const Sidebar: React.FC = () => {
+
+    return <div className="flex">
+        <div className="flex flex-col w-full h-full p-3 shadow">
+            <div className="space-y-3">
+                <div className="flex items-center justify-between space-x-3 p-2 border-b-2">
+                    <LuShoppingBasket/>
+                    <h2 className="text-xl font-bold">Eshop</h2>
+                    <LuShoppingBasket/>
+                </div>
+                <div className="flex-1">
+                    <ul className="pt-2 pb-4 space-y-1 text-sm">
+                        <li className="rounded-sm hover:bg-blue-100 dark:hover:bg-blue-700">
+                            <Link href="/" className="flex items-center p-4 space-x-3 rounded-md">
+                                <RxDashboard/>
+                                <span>Dashboard</span>
+                            </Link>
+                        </li>
+                        <li className="rounded-sm hover:bg-blue-100 dark:hover:bg-blue-700">
+                            <Link href="/catalog" className="flex items-center p-4 space-x-3 rounded-md">
+                                <BsDatabase/>
+                                <span>Catalog</span>
+                            </Link>
+                        </li>
+                        <li className="rounded-sm hover:bg-blue-100 dark:hover:bg-blue-700">
+                            <Link href="/orders" className="flex items-center p-4 space-x-3 rounded-md">
+                                <TiShoppingCart/>
+                                <span>Orders</span>
+                            </Link>
+                        </li>
+                        <li className="rounded-sm hover:bg-blue-100 dark:hover:bg-blue-700">
+                            <Link href="/customers" className="flex items-center p-4 space-x-3 rounded-md">
+                                <PiUsers/>
+                                <span>Customers</span>
+                            </Link>
+                        </li>
+                        <li className="rounded-sm hover:bg-blue-100 dark:hover:bg-blue-700">
+                            <Link href="/marketing" className="flex items-center p-4 space-x-3 rounded-md">
+                                <SiGooglemarketingplatform/>
+                                <span>Marketing</span>
+                            </Link>
+                        </li>
+                        <li className="rounded-sm hover:bg-blue-100 dark:hover:bg-blue-700">
+                            <Link href="/analytics" className="flex items-center p-4 space-x-3 rounded-md">
+                                <TbPresentationAnalytics/>
+                                <span>Analytics</span>
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <ul className="border-b-2">
-            <li className="flex items-center hover:bg-gray-100 dark:hover:bg-gray-700">
-                <Link href="#" className="flex items-center p-6 w-full space-x-4 pointer-events-none">
-                    <RxDashboard/>
-                    <span className="text-sm font-medium">Dashboard</span>
-                </Link>
-            </li>
-            <li className="flex items-center hover:bg-gray-100 dark:hover:bg-gray-700">
-                <Link href="#" className="flex items-center p-6 w-full space-x-4">
-                    <BsDatabase/>
-                    <span className="text-sm font-medium">Catalog</span>
-                </Link>
-            </li>
-            <li className="flex items-center hover:bg-gray-100 dark:hover:bg-gray-700">
-                <Link href="#" className="flex items-center p-6 w-full space-x-4 pointer-events-none">
-                    <TiShoppingCart/>
-                    <span className="text-sm font-medium">Orders</span>
-                </Link>
-            </li>
-            <li className="flex items-center hover:bg-gray-100 dark:hover:bg-gray-700">
-                <Link href="#" className="flex items-center p-6 w-full space-x-4 pointer-events-none">
-                    <PiUsers/>
-                    <span className="text-sm font-medium">Customers</span>
-                </Link>
-            </li>
-            <li className="flex items-center hover:bg-gray-100 dark:hover:bg-gray-700">
-                <Link href="#" className="flex items-center p-6 w-full space-x-4 pointer-events-none">
-                    <SiGooglemarketingplatform/>
-                    <span className="text-sm font-medium">Marketing</span>
-                </Link>
-            </li>
-            <li className="flex items-center hover:bg-gray-100 dark:hover:bg-gray-700">
-                <Link href="#" className="flex items-center p-6 w-full space-x-4 pointer-events-none">
-                    <TbPresentationAnalytics/>
-                    <span className="text-sm font-medium">Analytics</span>
-                </Link>
-            </li>
-        </ul>
-        <ul className="mt-auto border-t-2">
-            <li className="flex items-center hover:bg-gray-100 dark:hover:bg-gray-700">
-                <Link href="https://github.com/dksifoua/eshop-admin-ui/issues"
-                      target="_blank"
-                      className="flex items-center p-6 w-full space-x-4">
-                    <MdOutlineContactSupport/>
-                    <span className="text-sm font-medium">Support</span>
-                    <RxArrowTopRight/>
-                </Link>
-            </li>
-            <li className="flex items-center hover:bg-gray-100 dark:hover:bg-gray-700">
-                <Link href="https://github.com/dksifoua/eshop-admin-ui/wiki"
-                      target="_blank"
-                      className="flex items-center p-6 w-full space-x-4">
-                    <CgFileDocument/>
-                    <span className="text-sm font-medium">Documentation</span>
-                    <RxArrowTopRight/>
-                </Link>
-            </li>
-        </ul>
-    </aside>
+    </div>
+}
 
 export default Sidebar
