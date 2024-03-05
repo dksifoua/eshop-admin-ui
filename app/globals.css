@@ -93,7 +93,7 @@
   }
   .eshop-main {
     grid-area: main;
-    background-color: lightyellow;
+    border: brown 1px solid;
   }
   .eshop-footer {
     grid-area: footer;
