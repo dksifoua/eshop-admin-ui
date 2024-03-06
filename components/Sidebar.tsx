@@ -29,37 +29,37 @@ const Sidebar: React.FC = () => {
             <div className={`flex flex-col w-full h-auto border-b-2`}>
                 <ul className="mt-5 pt-2 pb-4 space-y-1 text-sm">
                     <li className="rounded-sm hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <Link href="/" className="flex items-center p-4 space-x-3 rounded-md">
+                        <Link href={`/`} className="flex items-center p-4 space-x-3 rounded-md">
                             <LayoutDashboard/>
                             <span>Dashboard</span>
                         </Link>
                     </li>
                     <li className="rounded-sm hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <Link href="/" className="flex items-center p-4 space-x-3 rounded-md">
+                        <Link href={`/catalog`} className="flex items-center p-4 space-x-3 rounded-md">
                             <ShoppingBag/>
                             <span>Catalog</span>
                         </Link>
                     </li>
                     <li className="rounded-sm hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <Link href="/" className="flex items-center p-4 space-x-3 rounded-md">
+                        <Link href={`/orders`} className="flex items-center p-4 space-x-3 rounded-md">
                             <ShoppingCart/>
                             <span>Orders</span>
                         </Link>
                     </li>
                     <li className="rounded-sm hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <Link href="/" className="flex items-center p-4 space-x-3 rounded-md">
+                        <Link href={`/customers`} className="flex items-center p-4 space-x-3 rounded-md">
                             <Users/>
                             <span>Customers</span>
                         </Link>
                     </li>
                     <li className="rounded-sm hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <Link href="/" className="flex items-center p-4 space-x-3 rounded-md">
+                        <Link href={`/promotions`} className="flex items-center p-4 space-x-3 rounded-md">
                             <Percent/>
                             <span>Promotions</span>
                         </Link>
                     </li>
                     <li className="rounded-sm hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <Link href="/" className="flex items-center p-4 space-x-3 rounded-md">
+                        <Link href={`/settings`} className="flex items-center p-4 space-x-3 rounded-md">
                             <Settings/>
                             <span>Settings</span>
                         </Link>
