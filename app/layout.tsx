@@ -4,6 +4,7 @@ import "./globals.css"
 import React from "react"
 import EShopThemeProvider from "@/components/EShopThemeProvider"
 import ThemeSwitcher from "@/components/ThemeSwitcher"
+import Sidebar from "@/components/Sidebar"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -16,9 +17,12 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
     return (
         <html lang="en">
         <body className={inter.className}>
-        <EShopThemeProvider attribute="class" defaultTheme="dark">
-            <ThemeSwitcher/>
-            {children}
+        <EShopThemeProvider attribute="class" defaultTheme="system" enableSystem={true} storageKey="theme">
+            <Sidebar/>
+            <main className="w-full h-full border-2">
+                <ThemeSwitcher/>
+                {children}
+            </main>
         </EShopThemeProvider>
         </body>
         </html>
