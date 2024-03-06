@@ -1,9 +1,14 @@
 import React from "react"
 
-const Catalog: React.FC = () => {
+const Page: React.FC = () => {
+
     return (
-        <h1>Catalog UI</h1>
+        <div className={`flex flex-col space-y-2 px-6 py-4`}>
+            <div className={`flex`}>
+                <h1 className={`text-2xl font-bold tracking-tight`}>Catalog</h1>
+            </div>
+        </div>
     )
 }
 
-export default Catalog
+export default Page
