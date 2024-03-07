@@ -72,8 +72,7 @@ const columns: ColumnDef<Category>[] = [
             <ArrowUpDown className={`ml-2 h-4 w-4`}/>
         </Button>,
         accessorFn: row => row.audit?.updated_at?.toLocaleString(),
-    }
-    ,
+    },
 ]
 
 const Page: React.FC = () => {
