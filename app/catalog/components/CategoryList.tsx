@@ -1,18 +1,19 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 import {
-    ColumnDef,
-    getCoreRowModel,
+    ColumnDef, ColumnFiltersState,
+    getCoreRowModel, getFilteredRowModel,
     getPaginationRowModel,
     getSortedRowModel,
-    SortingState
+    SortingState, VisibilityState
 } from "@tanstack/table-core"
 import { flexRender, useReactTable } from "@tanstack/react-table"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Input } from "@/components/ui/input"
 
 interface Props<TData, TValue> {
     columns: ColumnDef<TData, TValue>[],
@@ -20,21 +21,32 @@ interface Props<TData, TValue> {
 }
 
 const CategoryList = <TData, TValue>({ columns, data }: Props<TData, TValue>) => {
-    const [sorting, setSorting] = React.useState<SortingState>([])
+    const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
+    const [sorting, setSorting] = useState<SortingState>([])
     const table = useReactTable({
         data,
         columns,
         getCoreRowModel: getCoreRowModel(),
+        getFilteredRowModel: getFilteredRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
         getSortedRowModel: getSortedRowModel(),
+        onColumnFiltersChange: setColumnFilters,
         onSortingChange: setSorting,
         state: {
+            columnFilters,
             sorting,
         }
     })
 
     return (
         <div>
+            <div className={`flex items-center py-4`}>
+                <Input
+                    placeholder={`Filter categories...`}
+                    value={table.getColumn("name")?.getFilterValue() as string ?? ''}
+                    onChange={event => table.getColumn("name")?.setFilterValue(event.target.value as string)}
+                />
+            </div>
             <div className="rounded-md border">
                 <Table>
                     <TableHeader>
