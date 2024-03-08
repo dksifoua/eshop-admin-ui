@@ -21,7 +21,8 @@ const columns: ColumnDef<Category>[] = [
             checked={row.getIsSelected()}
             onCheckedChange={value => row.toggleSelected(!!value)}
             aria-label={`Select row`}
-        />
+        />,
+        enableHiding: false
     },
     {
         id: "name",

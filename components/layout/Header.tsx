@@ -1,5 +1,5 @@
 import React from "react"
-import ThemeSwitcher from "@/components/ThemeSwitcher"
+import ThemeSwitcher from "@/components/layout/ThemeSwitcher"
 import { Input } from "@/components/ui/input"
 
 const Header: React.FC = () => {

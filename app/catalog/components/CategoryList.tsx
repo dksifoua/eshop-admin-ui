@@ -11,9 +11,15 @@ import {
 import { flexRender, useReactTable } from "@tanstack/react-table"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react"
+import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, MoreHorizontal } from "lucide-react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Input } from "@/components/ui/input"
+import {
+    DropdownMenu,
+    DropdownMenuCheckboxItem,
+    DropdownMenuContent,
+    DropdownMenuTrigger
+} from "@/components/ui/dropdown-menu"
 
 interface Props<TData, TValue> {
     columns: ColumnDef<TData, TValue>[],
@@ -22,6 +28,7 @@ interface Props<TData, TValue> {
 
 const CategoryList = <TData, TValue>({ columns, data }: Props<TData, TValue>) => {
     const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
+    const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
     const [sorting, setSorting] = useState<SortingState>([])
     const table = useReactTable({
         data,
@@ -31,21 +38,48 @@ const CategoryList = <TData, TValue>({ columns, data }: Props<TData, TValue>) =>
         getPaginationRowModel: getPaginationRowModel(),
         getSortedRowModel: getSortedRowModel(),
         onColumnFiltersChange: setColumnFilters,
+        onColumnVisibilityChange: setColumnVisibility,
         onSortingChange: setSorting,
         state: {
             columnFilters,
+            columnVisibility,
             sorting,
         }
     })
 
     return (
         <div>
-            <div className={`flex items-center py-4`}>
+            <div className={`flex flex-row justify-between items-center gap-2 py-4`}>
                 <Input
                     placeholder={`Filter categories...`}
                     value={table.getColumn("name")?.getFilterValue() as string ?? ''}
                     onChange={event => table.getColumn("name")?.setFilterValue(event.target.value as string)}
+                    className={`h-8`}
                 />
+                <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                        <Button variant={`outline`} className={`ml-auto h-8`}>
+                            <MoreHorizontal className={`mr-2 h-4 w-4`}/>
+                            Columns
+                        </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align={`end`}>
+                        {
+                            table.getAllColumns()
+                                .filter(column => column.getCanHide())
+                                .map(column =>
+                                    <DropdownMenuCheckboxItem
+                                        key={column.id}
+                                        checked={column.getIsVisible()}
+                                        onCheckedChange={value => column.toggleVisibility(value)}
+                                        className={`capitalize`}
+                                    >
+                                        {column.id}
+                                    </DropdownMenuCheckboxItem>
+                                )
+                        }
+                    </DropdownMenuContent>
+                </DropdownMenu>
             </div>
             <div className="rounded-md border">
                 <Table>
