@@ -71,6 +71,6 @@
     @apply border-border;
   }
   body {
-    @apply flex flex-row w-full h-lvh bg-background text-foreground;
+    @apply bg-background text-foreground;
   }
 }

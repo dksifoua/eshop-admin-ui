@@ -7,25 +7,14 @@ export type Category = {
     audit: Audit
 }
 
-export const getCategories = async (): Promise<Category[]> => {
-    return [
-        {
-            id: "1",
-            name: "Category 1",
-            description: "Description 1",
-            audit: {
-                created_at: new Date(Date.now()),
-                updated_at: null
-            }
-        },
-        {
-            id: "2",
-            name: "Category 2",
-            description: "Description 2",
-            audit: {
-                created_at: new Date(Date.now()),
-                updated_at: new Date(Date.now())
-            }
+export default class CategoryService {
+
+    static async getCategories(): Promise<Category[]> {
+        const response = await fetch(`http://localhost:8080/api/v1/catalog/categories`)
+        if (!response.ok) {
+            throw new Error(response.statusText)
         }
-    ]
+
+        return response.json()
+    }
 }

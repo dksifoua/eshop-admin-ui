@@ -1,13 +1,13 @@
 "use client"
 
-import React from "react"
+import React, { useEffect } from "react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import CategoryList from "@/app/catalog/components/CategoryList"
 import { ColumnDef } from "@tanstack/table-core"
-import { Category, getCategories } from "@/services/catalog/categories"
+import CategoryService, { Category } from "@/services/catalog/categories"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Button } from "@/components/ui/button"
-import { ArrowUpDown } from "lucide-react"
+import Icon from "@/components/Icon"
 
 const columns: ColumnDef<Category>[] = [
     {
@@ -32,7 +32,7 @@ const columns: ColumnDef<Category>[] = [
             className={`w-full h-full justify-between`}
         >
             Name
-            <ArrowUpDown className={`ml-2 h-4 w-4`}/>
+            <Icon name="arrow-up-down" className={`ml-2 h-4 w-4`}/>
         </Button>,
         accessorFn: row => row.name,
     },
@@ -44,7 +44,7 @@ const columns: ColumnDef<Category>[] = [
             className={`w-full h-full justify-between`}
         >
             Description
-            <ArrowUpDown className={`ml-2 h-4 w-4`}/>
+            <Icon name="arrow-up-down" className={`ml-2 h-4 w-4`}/>
         </Button>,
         accessorFn: row => row.description,
     }
@@ -57,7 +57,7 @@ const columns: ColumnDef<Category>[] = [
             className={`w-full h-full justify-between`}
         >
             Created At
-            <ArrowUpDown className={`ml-2 h-4 w-4`}/>
+            <Icon name="arrow-up-down" className={`ml-2 h-4 w-4`}/>
         </Button>,
         accessorFn: row => row.audit?.created_at?.toLocaleString(),
     }
@@ -70,7 +70,7 @@ const columns: ColumnDef<Category>[] = [
             className={`w-full h-full justify-between`}
         >
             Updated At
-            <ArrowUpDown className={`ml-2 h-4 w-4`}/>
+            <Icon name="arrow-up-down" className={`ml-2 h-4 w-4`}/>
         </Button>,
         accessorFn: row => row.audit?.updated_at?.toLocaleString(),
     },
@@ -79,8 +79,8 @@ const columns: ColumnDef<Category>[] = [
 const Page: React.FC = () => {
     const [categories, setCategories] = React.useState<Category[]>([])
 
-    React.useEffect(() => {
-        getCategories().then(res => setCategories(res))
+    useEffect(() => {
+        CategoryService.getCategories().then(res => setCategories(res))
     }, [])
 
     return (

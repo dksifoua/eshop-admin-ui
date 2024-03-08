@@ -11,7 +11,6 @@ import {
 import { flexRender, useReactTable } from "@tanstack/react-table"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, MoreHorizontal } from "lucide-react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Input } from "@/components/ui/input"
 import {
@@ -20,6 +19,7 @@ import {
     DropdownMenuContent,
     DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu"
+import Icon from "@/components/Icon"
 
 interface Props<TData, TValue> {
     columns: ColumnDef<TData, TValue>[],
@@ -59,7 +59,7 @@ const CategoryList = <TData, TValue>({ columns, data }: Props<TData, TValue>) =>
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                         <Button variant={`outline`} className={`ml-auto h-8`}>
-                            <MoreHorizontal className={`mr-2 h-4 w-4`}/>
+                            <Icon name="more-horizontal" className={`mr-2 h-4 w-4`}/>
                             Columns
                         </Button>
                     </DropdownMenuTrigger>
@@ -158,28 +158,28 @@ const CategoryList = <TData, TValue>({ columns, data }: Props<TData, TValue>) =>
                         onClick={() => table.firstPage()}
                         disabled={!table.getCanPreviousPage()}
                         className={`h-8 w-8 p-0`}
-                    ><ChevronsLeft className={`h-4 w-4`}/></Button>
+                    ><Icon name="chevrons-left" className={`h-4 w-4`}/></Button>
                     <Button
                         variant={`outline`}
                         size={`sm`}
                         onClick={() => table.previousPage()}
                         disabled={!table.getCanPreviousPage()}
                         className={`h-8 w-8 p-0`}
-                    ><ChevronLeft className={`h-4 w-4`}/></Button>
+                    ><Icon name="chevron-left" className={`h-4 w-4`}/></Button>
                     <Button
                         variant={`outline`}
                         size={`sm`}
                         onClick={() => table.nextPage()}
                         disabled={!table.getCanNextPage()}
                         className={`h-8 w-8 p-0`}
-                    ><ChevronRight className={`h-4 w-4`}/></Button>
+                    ><Icon name="chevron-right" className={`h-4 w-4`}/></Button>
                     <Button
                         variant={`outline`}
                         size={`sm`}
                         onClick={() => table.lastPage()}
                         disabled={!table.getCanNextPage()}
                         className={`h-8 w-8 p-0`}
-                    ><ChevronsRight className={`h-4 w-4`}/></Button>
+                    ><Icon name="chevrons-right" className={`h-4 w-4`}/></Button>
                 </div>
             </div>
         </div>

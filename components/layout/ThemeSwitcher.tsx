@@ -1,20 +1,20 @@
 "use client"
 
 import React from "react"
-import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
-import { Moon, Sun } from "lucide-react"
+import Icon from "@/components/Icon"
+import useThemeMode from "@/hooks/useThemeMode"
 
 const ThemeSwitcher: React.FC = () => {
-    const { theme, setTheme } = useTheme()
+    const [themeMode, toggleThemeMode] = useThemeMode()
 
     return <Button
         size="icon"
         variant="ghost"
         className="rounded-full"
-        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+        onClick={() => toggleThemeMode()}
     >
-        {theme === "light" ? <Moon/> : <Sun/>}
+        {themeMode === "light" ? <Icon name="moon"/> : <Icon name="sun"/>}
     </Button>
 }
 
