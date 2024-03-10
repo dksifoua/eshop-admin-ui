@@ -1,21 +1,28 @@
 "use client"
 
-import React from "react"
+import React, { useContext, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import Icon from "@/components/Icon"
-import useThemeMode from "@/hooks/useThemeMode"
+import { Theme } from "@/utils/theme"
+import { ThemeContext } from "@/hooks/useTheme"
 
 const ThemeSwitcher: React.FC = () => {
-    const [themeMode, toggleThemeMode] = useThemeMode()
+    const { theme, toggleTheme } = useContext(ThemeContext)
 
-    return <Button
-        size="icon"
-        variant="ghost"
-        className="rounded-full"
-        onClick={() => toggleThemeMode()}
-    >
-        {themeMode === "light" ? <Icon name="moon"/> : <Icon name="sun"/>}
-    </Button>
+    return (
+        <Button
+            size="icon"
+            variant="ghost"
+            className="rounded-full"
+            onClick={toggleTheme}
+        >
+            {
+                theme === Theme.LIGHT
+                    ? <Icon name="moon"/>
+                    : <Icon name="sun"/>
+            }
+        </Button>
+    )
 }
 
 export default ThemeSwitcher
