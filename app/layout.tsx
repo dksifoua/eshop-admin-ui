@@ -5,7 +5,6 @@ import React from "react"
 import Sidebar from "@/components/layout/Sidebar"
 import Header from "@/components/layout/Header"
 import { ThemeContextProvider } from "@/hooks/useTheme"
-import { Theme } from "@/lib/types"
 
 const inter = Inter({ subsets: ["latin"] })
 

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useContext, useState } from "react"
+import React, { useContext } from "react"
 import { Button } from "@/components/ui/button"
 import { Moon, Sun } from "lucide-react"
 import { Theme } from "@/lib/types"
