@@ -1,21 +1,12 @@
 import React from "react"
-import ThemeSwitcher from "@/components/layout/ThemeSwitcher"
-import { Input } from "@/components/ui/input"
+import ThemeToggle from "@/components/layout/ThemeToggle"
 
-const Header: React.FC = () => {
-
-    return (
-        <div className={`flex flex-row p-2 gap-2 border-b-2`}>
-            <div className={`flex ml-auto gap-2`}>
-                <Input
-                    type="search"
-                    placeholder="Search..."
-                    disabled={true}
-                />
-                <ThemeSwitcher/>
-            </div>
-        </div>
-    )
+export default function Header() {
+  return (
+    <div className="flex flex-row w-full h-[10%] border-b-2">
+      <div className="flex items-center ml-auto">
+        <ThemeToggle/>
+      </div>
+    </div>
+  )
 }
-
-export default Header
